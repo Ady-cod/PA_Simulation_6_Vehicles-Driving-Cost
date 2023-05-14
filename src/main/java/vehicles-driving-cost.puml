@@ -1,0 +1,35 @@
+@startuml
+interface Vehicle{
++calculateCost(int month,int distanceTraveled):default double
++calculateMaintenanceCost():double
++calculateInsurance():double
++calculateConsumption(int distanceTraveled):double
+
+}
+abstract class OilCar implements Vehicle{
+-sizeType:SizeType
+#size:int
+#cylindersNumber:int
+
+}
+class GasolineCar extends OilCar{
+-maximumSpeed:int
+}
+class DieselCar extends OilCar{
+}
+class ElectricCar implements Vehicle{
+-batteryCapacity:int
+-batteryPower:int
+}
+enum SizeType{
+SUB-COMPACT(2405,2830),
+COMPACT(2830,3110),
+MID-SIZE(3115,3395),
+LARGE(3400);
+-minVolume:int
+-maxVolume:int
+-DEFAULT_MAX_VOLUME:int
++generateRandomSize():int
+}
+OilCar-->SizeType
+@enduml
